@@ -3,7 +3,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t sinu/react-test -f ./client/Dockerfile.dev .
+  - docker build -t sinu/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true sinu/react-test npm test
