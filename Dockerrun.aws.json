@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "ContainerDefinitions" : [
+    {
+      "name": "client",
+      "image": "sinu/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "sinu/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "sinu/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "sinu/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portmappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client","server"]
+
+    }
+  ]
+}

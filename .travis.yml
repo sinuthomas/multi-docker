@@ -14,7 +14,7 @@ after_success:
   - docker build -t sinu/multi-nginx ./nginx
   - docker build -t sinu/multi-worker ./worker
 # login to docker CLI
-  - echo "DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
 
 # push the images to docker hub
