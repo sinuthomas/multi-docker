@@ -22,3 +22,4 @@ after_success:
   - docker push sinu/multi-server
   - docker push sinu/multi-nginx
   - docker push sinu/multi-worker
+#end of file
