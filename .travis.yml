@@ -23,3 +23,17 @@ after_success:
   - docker push sinu/multi-nginx
   - docker push sinu/multi-worker
 #end of file
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-west-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-eu-west-2-874303585166
+  backet_path: docker-multi
+  on:
+    branch: master
+  access_key_id:
+    secure: $AWS_ACCESS_KEY
+  secret_access_key: :
+    secure: $AWS_SECRET_KEY
